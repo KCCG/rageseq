@@ -59,7 +59,7 @@ The pipeline is designed for execution on massively parallel computing infrastru
 
 # Filter with baits
 
-# Fuzzy matching
+# Direct matching
 
 # Assembly
 
