@@ -76,13 +76,13 @@ def main():
                 fq_tmp = []
                 c = 0
                 if chunk >= args.chunks:
-                    do_shit(args, fq_list, bcs, out)
+                    do_batch(args, fq_list, bcs, out)
                     fq_list = []
                     chunk = 0
 
-    do_shit(args, fq_list, bcs, out)
+    do_batch(args, fq_list, bcs, out)
 
-def do_shit(args, faq, bc, out):
+def do_batch(args, faq, bc, out):
     with open(out, 'a') as o1:
         for fq in faq:
             if len(fq[1]) < args.filter:
