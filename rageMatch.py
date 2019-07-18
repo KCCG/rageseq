@@ -114,7 +114,7 @@ def do_batch(args, faq, bc, out):
                     trim = n.start() - (args.trim + 2)
                     trim = len(fq[1]) - (length - trim)
                     if args.stats:
-                        fq[0] = '{} fwd_bc={} fwd_UMI={} cellNum={} start={} end={}'.format(fq[0], bc[3], fq[1][trim+2:trim+args.trim+2], str(args.barcodeNumber), str(len(fq[1]) - length + n.start()), str(len(fq[1]) - length + n.end()))
+                        fq[0] = '{} rev_bc={} rev_UMI={} cellNum={} start={} end={}'.format(fq[0], bc[3], fq[1][trim+2:trim+args.trim+2], str(args.barcodeNumber), str(len(fq[1]) - length + n.start()), str(len(fq[1]) - length + n.end()))
                     else:
                         fq[0] = '{} rev_bc={} rev_UMI={} cellNum={}'.format(fq[0], bc[3], fq[1][trim+2:trim+args.trim+2], str(args.barcodeNumber))
                     fq[1] = fq[1][:trim]
