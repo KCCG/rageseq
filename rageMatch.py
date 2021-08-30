@@ -48,9 +48,9 @@ def main():
                         help="The barcode line number from the barcode file 1 indexed - used for HPC array jobs or a single barcode")
     parser.add_argument("-c", "--chunks", type=int,
                         help="Number of reads to store in memory before processing")
-    parser.add_argument("-l", "--length", type=int,
-                        help="Number of nt to search at start and end")
-    parser.add_argument("-f", "--filter", type=int,
+    parser.add_argument("-l", "--length", type=int, default=0,
+                        help="Number of nt to search at start and end, 0=automatic")
+    parser.add_argument("-f", "--filter", type=int, default=200,
                         help="Min length of read required to be used")
     parser.add_argument("-t", "--trim", type=int,
                         help="Trim barcodes and adapters from reads - number of bases")
@@ -92,6 +92,9 @@ def do_batch(args, faq, bc, out):
                     length = int(len(fq[1]) / 2.0)
                 else:
                     length = 200
+            else:
+                length = args.length
+                
             k = re.search(bc[2], fq[1][:length])
             n = re.search(bc[3], fq[1][len(fq[1]) - length:])
             if k:
